@@ -10,6 +10,8 @@ To create a new project, you need to create a new folder. Any empty folder will 
 
 In your project folder are some hidden files, a couple default files (like “icon.png”) and the rest are your files. The root or top of this file system is “res://” and there are also “user://” and system files. The *user directory* (user://) is for game saves, while the *resource directory* (res://) is for your game files . If you download add-ons from the Godot asset library, they should go to “res://addons/” folder in your project. You can organize your project files using folders. You can always add more folders, but keep it organized.
 
+![FileSystem Widget](godot_filebrowser.png)
+
 ### Objects
 
 [`Node`](https://bit.ly/2QI3JAG)s are the main object type you will work with in the editor. Each scene you build out of nodes, and actually a “scene” is a collection of nodes saved to a file (TSCN or “text-scene”). You can include scenes into other scenes and update them later. Changes take effect in related scenes, so making adjustments is no problem. You can build up your game parts (player, level, enemy, enemy spawner) and combine them in different ways.
@@ -17,6 +19,8 @@ In your project folder are some hidden files, a couple default files (like “ic
 Inside a [`Node`](https://bit.ly/2QI3JAG) you have *properties*, and from GDScript you also have *functions*. Node properties can be a data type (number, Vector2, Array, etc.) or a Resource (image, sound). Functions control game logic by editing properties or calling engine functions. Nodes inherit all the properties and functions of their parent node. [`Node2D`](https://bit.ly/2AFhR8M) has all the info and tools available in [`Node`](https://bit.ly/2QI3JAG), because [`Node2D`](https://bit.ly/2AFhR8M) is a child of [`Node`](https://bit.ly/2QI3JAG).
 
 You can also use signals to call functions, which are event triggered. A common example for signals is when using a [`Timer`](https://bit.ly/2FvXcqZ) node. The “timeout” signal calls a function when the timer is up. You can define a signal in your script, then call `emit_signal` when the signal's event happens. Signals are fast, but you have to choose where to call `emit_signal`.
+
+![Node Tree](godot_nodetree.png)
 
 *Example: Using a timer.*
 ```gdscript
