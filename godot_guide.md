@@ -63,9 +63,13 @@ In 2D the engine draws objects to screen in order. The first node in the tree ge
 
 ![Node Tree](img/godot_nodetree.png)
 
+You can access nodes belonging to a group from the SceneTree. Use the code `get_tree().get_nodes_in_group("enemies")` to get all nodes in group "enemies".
+
 ### GDScript
 
-GDscript is Godot's default coding language. You save it to a text file ending with .gd or save built-in to any [`Node`](https://bit.ly/2QI3JAG) object. The script has to start with `extends Node` or replace "Node" with the type you'll attach the script to. Leaving out "extends" is the same as `extends Reference` which is a data type you don't add to the [`SceneTree`](https://bit.ly/2Fu6fZ9).
+GDscript is Godot's default coding language. You save it to a text file ending with .gd or save it built-in to any [`Node`](https://bit.ly/2QI3JAG) object. The script has to start with `extends Node` or replace "Node" with the type you'll attach the script to. Leaving out "extends" is the same as `extends Reference` which is a data type you don't add to the [`SceneTree`](https://bit.ly/2Fu6fZ9).
+
+### Native Code
 
 GDScript is great, but it isn't 100% the fastest option. When you need extra speed, you can use C++ as a Native module. For 2D, GDScript can manage running the whole game. For 3D you might need C++ for your dynamic world building code (or whatever intensive code you’re making).
 
@@ -90,6 +94,8 @@ The physics engine nodes are:
 [`VehicleBody`](https://bit.ly/2RNuvMs) is only available in 3D. Godot 3.1 will also include a `PhysicalBone` physics object for 3D.
 
 Physics objects need to have a [`CollisionShape`](https://bit.ly/2TKC1oD) (or [`CollisionPolygon`](https://bit.ly/2THd6Cw)) as a child node. This tells the engine how big and what shape the object is.
+
+All physics objects have collision layers and collision masks. The collision layer represents which layer(s) the object is on. The mask represents which layers the object collides with. So an object with layer 1 and mask 2 will collide with objects on layer 2, but not layer 1 (so no collision with other instances).
 
 Note that you only need [`KinematicBody`](https://bit.ly/2RpKAZi) to move objects that collide. Otherwise you can change the position/translation property to move the object. For smooth movement you can use a [`Tween`](https://bit.ly/2RQsEH3) to control the transition.
 
@@ -171,7 +177,7 @@ To create a tileset (or meshlib) you start with a `Node2D` (or a `Spatial`). The
 
 Linear algebra is where Vectors and Matrices (matrix) come from. It lets us do complex things fast and simple. This is good for realtime computing, and thus good for video games. Having knowledge of vectors and how they work is usually enough for a 2D game, but you might want to learn about matrices when working with 3D.
 
-Vectors can have 2 or more components, but for games we’re only interested in 2-component and 3-component vectors. Godot provides us with [`Vector2`](https://bit.ly/2QEFmUr) and [`Vector3`](https://bit.ly/2Fm8VZL) integrated data types. There are also the [`Transform2D`](https://bit.ly/2TI4yv6) and [`Transform`](https://bit.ly/2VNGMQ9) objects, which can rotate vectors. A [`Basis`](http://bit.ly/2RCA5l1) is a 3x3 matrix, and is a part of [`Transform`](https://bit.ly/2VNGMQ9), while [`Transform2D`](https://bit.ly/2TI4yv6) is a trio of [`Vector2`](https://bit.ly/2QEFmUr) (2x3 matrix). Call the `xform` function to transform your vectors according to your [`Transform`](https://bit.ly/2VNGMQ9).
+Vectors can have 2 or more components, but for games we’re only interested in 2-component and 3-component vectors. Godot provides us with [`Vector2`](https://bit.ly/2QEFmUr) and [`Vector3`](https://bit.ly/2Fm8VZL) integrated data types. There are also the [`Transform2D`](https://bit.ly/2TI4yv6) and [`Transform`](https://bit.ly/2VNGMQ9) objects. Call the `xform` function to transform your vectors according to your [`Transform`](https://bit.ly/2VNGMQ9).
 
 [Link: Godot Docs Vector Math](https://docs.godotengine.org/en/3.0/tutorials/math/vector_math.html)
 
