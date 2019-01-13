@@ -20,8 +20,6 @@ Inside a [`Node`](https://bit.ly/2QI3JAG) you have *properties*, and from GDScri
 
 You can also use signals to call functions, which are event triggered. A common example for signals is when using a [`Timer`](https://bit.ly/2FvXcqZ) node. The “timeout” signal calls a function when the timer is up. You can define a signal in your script, then call `emit_signal` when the signal's event happens. Signals are fast, but you have to choose where to call `emit_signal`.
 
-![Node Tree](img/godot_nodetree.png)
-
 *Example: Using a timer.*
 ```gdscript
 extends Node
@@ -62,6 +60,8 @@ Making a game in Godot begins with creating a scene. Inside a scene you assemble
 When you run your game you start with running a scene. It runs inside the [`SceneTree`](https://bit.ly/2Fu6fZ9) object, which holds the node tree of your scene. Any GDScript attached to your scene can access the [`SceneTree`](https://bit.ly/2Fu6fZ9) by calling `get_tree()`.
 
 In 2D the engine draws objects to screen in order. The first node in the tree gets drawn, then the second; and so the second drawing is on top of the first one. That means objects at the top of your node list are in the background when drawn to screen. And of course the last nodes in the list get drawn right on top in the foreground. There is a [`YSort`](https://bit.ly/2H8bEb4) node that lets you order them based on Y position. Make [`YSort`](https://bit.ly/2H8bEb4) the parent of your sorted nodes, and they’re ordered by their `position.y` value. Thus they’re in Y-ordered draw order. Useful for overlapping sprites in a bird-eye or isometric scene.
+
+![Node Tree](img/godot_nodetree.png)
 
 ### GDScript
 
