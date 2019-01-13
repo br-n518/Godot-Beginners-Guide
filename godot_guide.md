@@ -69,6 +69,8 @@ You can access nodes belonging to a group from the SceneTree. Use the code `get_
 
 GDscript is Godot's default coding language. You save it to a text file ending with .gd or save it built-in to any [`Node`](https://bit.ly/2QI3JAG) object. The script has to start with `extends Node` or replace "Node" with the type you'll attach the script to. Leaving out "extends" is the same as `extends Reference` which is a data type you don't add to the [`SceneTree`](https://bit.ly/2Fu6fZ9).
 
+[Link: @GDScript Built-in Functions](https://docs.godotengine.org/en/3.0/classes/class_@gdscript.html)
+
 ### Native Code
 
 GDScript is great, but it isn't 100% the fastest option. When you need extra speed, you can use C++ as a Native module. For 2D, GDScript can manage running the whole game. For 3D you might need C++ for your dynamic world building code (or whatever intensive code you’re making).
@@ -119,7 +121,7 @@ func _process(delta):
 		direction.x = 0
 
 func _physics_process(delta):
-	move_and_slide( direction * SPEED + GRAVITY )
+	move_and_slide( ((direction * SPEED) + GRAVITY) * delta )
 ```
 
 ### Node2D
@@ -155,7 +157,7 @@ func _process(delta):
 
 Here I defined a constant (can’t change value) called SPEED. I used the “onready” keyword to initialize the variable when the Node becomes “ready”.
 
-For input, make sure the [`InputEvent`](https://bit.ly/2spoUxQ) is an [`InputEventKey`](https://docs.godotengine.org/en/3.0/classes/class_inputeventkey.html?highlight=InputEventKey) (so I know I can call `event.scancode` or `event.pressed`). Then, if pressed I set the direction, or else zero the direction variable.
+For input, make sure the [`InputEvent`](https://bit.ly/2spoUxQ) is an [`InputEventKey`](https://docs.godotengine.org/en/3.0/classes/class_inputeventkey.html?highlight=InputEventKey) (so I know I can call `event.scancode` or `event.pressed`). Then, if pressed I set the direction, or else set the direction variable to zero.
 
 In `_process` I move the X position of the 'Sprite' based on the direction they want to go (1 or -1) multiplied by SPEED and `delta`. The [`Sprite`](https://bit.ly/2Hh1UeK) inherits `position` from [`Node2D`](https://bit.ly/2AFhR8M). The `delta` variable is a number for how much time passed between engine calls to `_process`. Multiply this by your speed so that movement is consistent with time itself. This makes movement consistent between different computers too.
 
@@ -179,6 +181,6 @@ Linear algebra is where Vectors and Matrices (matrix) come from. It lets us do c
 
 Vectors can have 2 or more components, but for games we’re only interested in 2-component and 3-component vectors. Godot provides us with [`Vector2`](https://bit.ly/2QEFmUr) and [`Vector3`](https://bit.ly/2Fm8VZL) integrated data types. There are also the [`Transform2D`](https://bit.ly/2TI4yv6) and [`Transform`](https://bit.ly/2VNGMQ9) objects. Call the `xform` function to transform your vectors according to your [`Transform`](https://bit.ly/2VNGMQ9).
 
-[Link: Godot Docs Vector Math](https://docs.godotengine.org/en/3.0/tutorials/math/vector_math.html)
+[Link: Godot Math Docs](https://docs.godotengine.org/en/3.0/tutorials/math/)
 
 
