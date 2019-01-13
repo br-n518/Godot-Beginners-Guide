@@ -161,12 +161,14 @@ You can build your game world out of a [`Tilemap`](https://bit.ly/2FtHmNl) (2D) 
 
 [`Tilemap`](https://bit.ly/2FtHmNl) and [`Gridmap`](https://bit.ly/2AGWt2C) each use a compiled Tileset (2D) or MeshLibrary (3D) to build their tiles. You can create these from an ordered scene. A tileset (or meshlib) only contains some types of data. These include [`Sprite`](https://bit.ly/2Hh1UeK) ([`Mesh`](https://bit.ly/2TIZjeU)), collision shape, and navigation mesh.
 
+To create a tileset (or meshlib) you start with a `Node2D` (or a `Spatial`). Then the children of that node will be the tiles. Each child should hold one `Sprite` (or `Mesh`) and can hold a `StaticBody2D` or `NavigationMesh`. Once complete, you can *Convert* the scene to a tileset (or meshlib) from the "Scene" dropdown menu in the editor. Save your scene as TSCN and save the tileset as TRES.
+
 ### Linear Algebra
 
-Linear algebra is where Vectors and Matrices (matrix) come from. It lets us do complex things fast and simple. This is very good for realtime computing, and thus good for video games. Having knowledge of vectors and how they work is usually enough for a 2D game. You might want to learn about matrices when working with 3D.
+Linear algebra is where Vectors and Matrices (matrix) come from. It lets us do complex things fast and simple. This is good for realtime computing, and thus good for video games. Having knowledge of vectors and how they work is usually enough for a 2D game, but you might want to learn about matrices when working with 3D.
 
-Vectors can have 2 or more components in linear algebra. For making games we’re only interested in 2-component and 3-component vectors. So Godot provides us with [`Vector2`](https://bit.ly/2QEFmUr) and [`Vector3`](https://bit.ly/2Fm8VZL) integrated data types. There are also the [`Transform2D`](https://bit.ly/2TI4yv6) and [`Transform`](https://bit.ly/2VNGMQ9) objects, which can rotate vectors. A [`Basis`](http://bit.ly/2RCA5l1) is a 3x3 matrix, and is a part of [`Transform`](https://bit.ly/2VNGMQ9), while [`Transform2D`](https://bit.ly/2TI4yv6) is a trio of [`Vector2`](https://bit.ly/2QEFmUr) (2x3 matrix). Call the `xform` function to transform your vectors according to your [`Transform`](https://bit.ly/2VNGMQ9).
+Vectors can have 2 or more components, but for games we’re only interested in 2-component and 3-component vectors. Godot provides us with [`Vector2`](https://bit.ly/2QEFmUr) and [`Vector3`](https://bit.ly/2Fm8VZL) integrated data types. There are also the [`Transform2D`](https://bit.ly/2TI4yv6) and [`Transform`](https://bit.ly/2VNGMQ9) objects, which can rotate vectors. A [`Basis`](http://bit.ly/2RCA5l1) is a 3x3 matrix, and is a part of [`Transform`](https://bit.ly/2VNGMQ9), while [`Transform2D`](https://bit.ly/2TI4yv6) is a trio of [`Vector2`](https://bit.ly/2QEFmUr) (2x3 matrix). Call the `xform` function to transform your vectors according to your [`Transform`](https://bit.ly/2VNGMQ9).
 
-
+[Link: Godot Docs Vector Math](https://docs.godotengine.org/en/3.0/tutorials/math/vector_math.html)
 
 
