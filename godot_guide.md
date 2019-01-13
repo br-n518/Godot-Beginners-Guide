@@ -10,7 +10,7 @@ To create a new project, you need to create a new folder. Any empty folder will 
 
 In your project folder are some hidden files, a couple default files (like “icon.png”) and the rest are your files. The root or top of this file system is “res://” and there are also “user://” and system files. The *user directory* (user://) is for game saves, while the *resource directory* (res://) is for your game files . If you download add-ons from the Godot asset library, they should go to “res://addons/” folder in your project. You can organize your project files using folders. You can always add more folders, but keep it organized.
 
-![FileSystem Widget](godot_filebrowser.png)
+![FileSystem Widget](img/godot_filebrowser.png)
 
 ### Objects
 
@@ -20,7 +20,7 @@ Inside a [`Node`](https://bit.ly/2QI3JAG) you have *properties*, and from GDScri
 
 You can also use signals to call functions, which are event triggered. A common example for signals is when using a [`Timer`](https://bit.ly/2FvXcqZ) node. The “timeout” signal calls a function when the timer is up. You can define a signal in your script, then call `emit_signal` when the signal's event happens. Signals are fast, but you have to choose where to call `emit_signal`.
 
-![Node Tree](godot_nodetree.png)
+![Node Tree](img/godot_nodetree.png)
 
 *Example: Using a timer.*
 ```gdscript
