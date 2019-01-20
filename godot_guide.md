@@ -155,6 +155,8 @@ func _process(delta):
 	position.x += direction * SPEED * delta
 ```
 
+[Link: `InputEvent`](https://docs.godotengine.org/en/3.0/tutorials/inputs/inputevent.html)
+
 Here I defined a constant (can’t change value) called SPEED. I used the “onready” keyword to initialize the variable when the Node becomes “ready”.
 
 For input, make sure the [`InputEvent`](https://bit.ly/2spoUxQ) is an [`InputEventKey`](https://docs.godotengine.org/en/3.0/classes/class_inputeventkey.html?highlight=InputEventKey) (so I know I can call `event.scancode` or `event.pressed`). Then, if pressed I set the direction, or else set the direction variable to zero.
