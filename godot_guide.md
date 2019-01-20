@@ -2,19 +2,15 @@
 
 ### Project Manager
 
-The first thing you see when opening Godot is the project manager. Here you can see a list of projects to choose from (if any). To add an existing project, use the “Scan” feature to search a folder (and its sub-folders) for all projects it can find. Godot 2.1 projects can’t import into Godot 3.0 without a converter. Godot 2.1 has a converter but it may not work well. Godot 3.0 projects should work in Godot 3.1, but Godot 3.1 files won’t work in Godot 3.0.
+The first thing you see when opening Godot is the project manager. Here you can see a list of projects to choose from (if any). To add an existing project, use the “Scan” feature to search a folder (and its sub-folders) for all projects it can find. Godot 2.1 projects can’t import into Godot 3.0 without converting it. Godot 2.1 has a converter but may not work well. Godot 3.0 projects should work in Godot 3.1, but Godot 3.1 files won’t work in Godot 3.0.
 
-To create a new project, you need an empty folder. Once you have your folder then click OK and load (edit) your project. You can also run your projects from the project manager without launching the editor.
+To create a new project, you need to create a new folder. Any empty folder will work, but it has to be completely empty. Once you have your folder then click OK and load (edit) your project. You can also run your projects from the project manager without launching the editor.
 
 ### File System
 
-In your project folder are some hidden files, a couple default files (like “icon.png”) and the rest are your files. The root or top of this file system is “res://”. The *user directory* (user://) is for game saves, while the *resource directory* (res://) is for your game files . If you download add-ons from the Godot asset library, they should go to “res://addons/” folder in your project.
-
-You can organize your project files by creating folders. You can also move, rename, or delete folders; if your other scenes and scripts aren't referencing them.
+In your project folder are some hidden files, a couple default files (like “icon.png”) and the rest are your files. The root or top of this file system is “res://” and there are also “user://” and system files. The *user directory* (user://) is for game saves, while the *resource directory* (res://) is for your game files . If you download add-ons from the Godot asset library, they should go to “res://addons/” folder in your project. You can organize your project files using folders. You can always add more folders, but keep it organized.
 
 ![FileSystem Widget](img/godot_filebrowser.png)
-
-NOTE: There's also the "sys://" address for accessing the system. You don't use this normally, but while saving their game your users might wander to an address outside of "user://". So it might be helpful to know this exists.
 
 ### Objects
 
@@ -57,12 +53,6 @@ func set_hitpoints( new_hp ):
 
 Resources are usually imported into your project as image files or sound files. Godot converts these files into its own format, which you can see in the “res://.import” folder. These resources can be re-imported from the editor by selecting your file in the file browser.
 
-### Parenting
-
-When a `Node2D` or `Spatial` has a child node, their position begins from their parent's position, not from the world origin (absolute zero; top-left corner of screen in 2D and arbitrary in 3D).
-
-Furthermore, if a `Node2D` has a child `Node`, and that Node has a child `Node2D`, then the position starts from the world origin. That's because `Node` doesn't have position data, so the chain is broken. This doesn't matter when dealing with the main scene (it doesn't move) but can cause problems with a character scene (the scene root moves).
-
 ### SceneTree
 
 Making a game in Godot begins with creating a scene. Inside a scene you assemble Nodes, and each scene begins with exactly one Node (of your choosing). Each node can have many children (as many as you want). This creates what we call a “tree” of nodes, and thus the name [`SceneTree`](https://bit.ly/2Fu6fZ9). When making a 2D scene your top node should be a [`Node2D`](https://bit.ly/2AFhR8M) or child of [`Node2D`](https://bit.ly/2AFhR8M). When making a 3D scene start with a [`Spatial`](https://bit.ly/2QI4CJw) type node. [`Control`](https://bit.ly/2slVW1F) nodes (user interface widgets) are 2D but work different from [`Node2D`](https://bit.ly/2AFhR8M) objects. The two work best when separated (you can separate with a [`CanvasLayer`](https://bit.ly/2RmHkhj) as child node). You can use 2D nodes in your 3D scene but they should be at the bottom of your node list (so they draw on top).
@@ -81,15 +71,11 @@ GDscript is Godot's default coding language. You save it to a text file ending w
 
 [Link: @GDScript Built-in Functions](https://docs.godotengine.org/en/3.0/classes/class_@gdscript.html)
 
-There are several functions the engine calls, such as `_ready()` or `_process(delta)`. You can see these in the [`Node`](https://bit.ly/2QI3JAG) documentation [here.](https://bit.ly/2QI3JAG) You'll also see the mutliplayer functions `rpc`, `rset`, and `set_network_master`.
-
-### GDNative
+### Native Code
 
 GDScript is great, but it isn't 100% the fastest option. When you need extra speed, you can use C++ as a Native module. For 2D, GDScript can manage running the whole game. For 3D you might need C++ for your dynamic world building code (or whatever intensive code you’re making).
 
 The benefits gained from using GDScript should outweigh the minor speed loss. Signals and groups are tools to help you build efficient scenes.
-
-[Link: GDNative Architecture (Godot Docs)](https://godotengine.org/article/look-gdnative-architecture)
 
 ### Physics
 
