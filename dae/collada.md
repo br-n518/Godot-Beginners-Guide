@@ -7,9 +7,9 @@ If you want to export 3D animated models from Blender, then you'll need the [God
 
 Godot prefers to receive triangulated meshes. The Triangulate option in the exporter has to be enabled for Godot to know.
 
-When importing your animated meshes, Godot bakes the animation data to a certain framerate. Make sure to choose the appropriate frames per second for your model, then re-import.
+![BCE Export Options](export_options.png)
 
-![Blender Outliner](character_export.png)
+When importing your animated meshes, Godot bakes the animation data to a certain framerate. Make sure to choose the appropriate frames per second for your model, then re-import.
 
 For an animated character:
 
@@ -20,6 +20,8 @@ For an animated character:
 For world building:
 
 * Array modifier applies to mesh, so multiple linked objects with different array length will snap to one array length.
+
+![Blender Outliner](character_export.png)
 
 ### NAME TAGS
 
