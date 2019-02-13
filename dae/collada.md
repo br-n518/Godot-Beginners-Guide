@@ -15,11 +15,11 @@ For an animated character:
 
 * The Mesh (or meshes) should be a child of the Armature.
 * All modifiers except Armature should be applied to mesh before export.
-	- So "Apply Modifiers" option doesn't work too well.
+	- So "Apply Modifiers" option doesn't work too well. Now newer versions of the collada exporter include an option to not apply the armature modifier.
 
 For world building:
 
-* Array modifier applies to mesh, so multiple linked objects with different array length will snap to one array length.
+* Array modifier applies to mesh, so multiple linked objects with different array length will snap to one array length. To avoid this you need unique mesh data for your duplicate objects although they look the same. Only when using Array or other mesh modifiers.
 
 ![Blender Outliner](character_export.png)
 
@@ -40,4 +40,6 @@ The tag must be at the end of the object's name.
 
 The collada exporter (engine importer?) supports Blender Internal Render materials (use Blender 2.79 for these) to some degree. This section is about how to map image textures to your collada file. This works better in Godot 2.1.
 
+
+Sorry this document is incomplete. GLTF might be another option but the binary format (GLB) isn't well supported.
 
