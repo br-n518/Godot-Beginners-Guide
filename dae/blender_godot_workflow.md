@@ -55,6 +55,7 @@ Now with the PBR engine in Godot (and no way yet of mapping Cycles or EEVEE mate
 ### Godot Assets
 
 **diffspec_normdpth.shader**
+- Code included below.
 
 **asset.material** (`ShaderMaterial`)
 - *diffspec_normdpth.shader*
