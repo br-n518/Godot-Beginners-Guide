@@ -20,5 +20,3 @@
 
 ***
 
-P.S. *If you want updates then set your github account to watch all updates (There won't be any releases to watch for in this repo).*
-
