@@ -1,26 +1,28 @@
-# Blender-Godot PBR Workflow Guide
+## Blender-Godot PBR Workflow Guide
 
 - Using `Godot 3.x` PBR engine.
-- `Blender 2.79` or `Blender 2.8` should be fine, since materials are not exported.
-- `Better Collada Exporter` (latest version)
+- `Blender 2.79` or `Blender 2.8` should be fine, since materials are not exported here.
+- `Better Collada Exporter` for Blender (latest version)
 
 ***
 
-## Preamble
+### Preamble
 
 In Godot 2.1.x the importer uses external graphics files, rather than the Godot 3.x way of keeping these files inside the project directory.
-This made it very convenient to export COLLADA (\*.dae) files with a Blender material mapping the image files to the collada file.
-Then one only needs to import the DAE file, which imports the DAE as SCN, and the images as TEX.
+This made it very convenient to export COLLADA (\*.dae) files with a Blender material, mapping the image files to the collada file.
+Then importing the DAE file imports the DAE and automatically the linked images.
 
-Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE materials to COLLADA nicely, it's better to create the material in Godot, which simply combines the model with the textures, with a couple extra variables to define roughness and such.
+Now with the PBR engine in Godot (and no way yet of mapping Cycles or EEVEE materials to COLLADA nicely) it's better to create the material in Godot because it enables you to use a shader for finer control.
 
-- Workflow is always important when making 3D assets, planning ahead is everything.
-  - The hard part in this case is planning animation track names. (Code logic has a much easier time dealing with assets that use uniform animation track names)
-  - Forcing uniform track names is limiting and cumbersome, so a good-enough code sample to handle name variation might be preferred. This only applies if you want to mark animation tracks as loops from Blender (the Godot importer reads this from the animation track name), while otherwise you can just avoid tags in track names and keep a uniform system for simplicity (plus your asset exports are guaranteed to be uniform by definition if you follow a uniform model scale and animation playback framerate).
+- Workflow is always important when making 3D assets; planning ahead is everything.
+  - The hard part in this case is planning animation track names.
+  - Forcing uniform track names is limiting and cumbersome, so a good-enough code sample to handle name variation might be preferred. (This only applies if you want to mark animation tracks as loops from Blender, otherwise a uniform naming scheme works)
 
 ***
 
 ### Base Assets
+
+(replace "asset" with the name of your creation)
 
 **asset.blend**
 - Mesh, UV, armature, animations.
@@ -64,7 +66,7 @@ Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE mate
 
 ### Final Scene
 
-**asset.tscn** (inherits *asset.dae* (`Spatial`, `res://.import/~asset.scn`))
+**asset.tscn** (inherits *asset.dae* (`Spatial`))
 - Apply *asset.material* to mesh.
 - *\*.gd* (some script needs to add logic, and handle animation playback)
 
