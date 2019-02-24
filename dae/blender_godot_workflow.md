@@ -1,10 +1,10 @@
-# 3D Asset Creation (from Blender to Godot 3.x)
+# Blender-Godot PBR Workflow Guide
 
 - Using `Godot 3.x` PBR engine.
 - `Blender 2.79` or `Blender 2.8` should be fine, since materials are not exported.
 - `Better Collada Exporter` (latest version)
 
-### Preamble
+## Preamble
 
 In Godot 2.1.x the importer uses external graphics files, rather than the Godot 3.x way of keeping these files inside the project directory.
 This made it very convenient to export COLLADA (\*.dae) files with a Blender material mapping the image files to the collada file.
@@ -18,7 +18,7 @@ Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE mate
 
 ***
 
-### Base Assets
+## Base Assets
 
 **asset.blend**
 - Mesh, UV, armature, animations.
@@ -44,7 +44,7 @@ Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE mate
 - RGBA
 - Disable normal-map detection on Godot importer (that feature is for SpatialMaterial, we can swap Y and Z ourselves in our shader instead of using the importer (also I'm scared of what it might do to the alpha channel, although sensibly it probably preserves the channel)).
 
-### res://assets/
+## res://assets/
 
 **diffspec_normdpth.shader**
 
@@ -54,7 +54,7 @@ Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE mate
 - *asset\_normal_height.png*
 - Set `metal` and `rough` (shader values) to appropriate values for asset.
 
-### res://scenes/
+## res://scenes/
 
 **asset.tscn** (inherits *asset.dae* (`Spatial`, `res://.import/~asset.scn`))
 - Apply *asset.material* to mesh.
@@ -62,7 +62,7 @@ Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE mate
 
 ***
 
-### res://assets/diffspec_normdpth.shader
+## res://assets/diffspec_normdpth.shader
 
 Code sample (Unlicense):
 
