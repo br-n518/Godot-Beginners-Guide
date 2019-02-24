@@ -32,6 +32,8 @@ Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE mate
 
 ***
 
+## Graphics Exports
+
 **asset.dae**
 - Exclude material.
 - This can be a Wavefront (OBJ) file if no animations are included (it has basically everything but animations and materials).
@@ -44,7 +46,7 @@ Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE mate
 - RGBA
 - Disable normal-map detection on Godot importer (that feature is for SpatialMaterial, we can swap Y and Z ourselves in our shader instead of using the importer (also I'm scared of what it might do to the alpha channel, although sensibly it probably preserves the channel)).
 
-## res://assets/
+## Godot Assets
 
 **diffspec_normdpth.shader**
 
@@ -54,7 +56,7 @@ Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE mate
 - *asset\_normal_height.png*
 - Set `metal` and `rough` (shader values) to appropriate values for asset.
 
-## res://scenes/
+## Final Scene
 
 **asset.tscn** (inherits *asset.dae* (`Spatial`, `res://.import/~asset.scn`))
 - Apply *asset.material* to mesh.
@@ -62,10 +64,7 @@ Now with the PBR engine in Godot, and no way yet of mapping Cycles or EEVEE mate
 
 ***
 
-## res://assets/diffspec_normdpth.shader
-
-Code sample (Unlicense):
-
+## diffspec_normdpth.shader code
 ```
 shader_type spatial;
 uniform sampler2D diffuse_specular;
