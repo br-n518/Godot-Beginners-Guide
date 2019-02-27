@@ -18,7 +18,8 @@ One folder for graphics, one for sounds, one for scripts, whatever makes sense t
 
 ![FileSystem Widget](img/godot_filebrowser.png)
 
-    Resources are usually imported into your project as image files or sound files. Godot converts these files into its own format, which you can see in the “res://.import” folder. These resources can be re-imported from the editor by selecting your file in the file browser.
+Godot converts resource files (like images) into its own format, which you can see in the “res://.import” folder.
+Resources can be re-imported from the editor by selecting your file in the file browser. Your import preferences are saved per file in a "\*.import" file (`my_image.png.import` for example)
 
 ### Objects
 
