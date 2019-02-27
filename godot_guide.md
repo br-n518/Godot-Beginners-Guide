@@ -131,7 +131,7 @@ func _physics_process(delta):
 	move_and_slide( ((direction * SPEED) + GRAVITY) * delta )
 ```
 
-[Link: More info.](https://docs.godotengine.org/en/3.0/tutorials/physics/physics_introduction.html#collision-objects)
+[Link: More physics info.](https://docs.godotengine.org/en/3.0/tutorials/physics/physics_introduction.html#collision-objects)
 
 ### Node2D
 
@@ -182,9 +182,13 @@ The same in 3D ([`Spatial`](https://docs.godotengine.org/en/3.0/classes/class_sp
 
 You can build your game world out of a `Tilemap` (2D) or a `Gridmap` (3D). You can also write your own level creation/management nodes.
 
-`Tilemap` and `Gridmap` each use a compiled Tileset (2D) or MeshLibrary (3D) to build their tiles. You can create these from an ordered scene. A tileset (or meshlib) only contains some types of data. These include [`Sprite`](https://docs.godotengine.org/en/3.0/classes/class_sprite.html) (`Mesh`), collision shape, and navigation mesh.
+`Tilemap` and `Gridmap` each use a compiled Tileset (2D) or MeshLibrary (3D) to build their tiles. A tileset (or meshlib) only contains some types of data. These include [`Sprite`](https://docs.godotengine.org/en/3.0/classes/class_sprite.html) (`Mesh`), collision shape, and navigation mesh.
 
-To create a tileset (or meshlib) you start with a `Node2D` (or a `Spatial`). Then the children of that node will be the tiles. Each child should hold one `Sprite` (or `Mesh`) and can hold a `StaticBody2D` or `NavigationMesh`. Once complete, you can *Convert* the scene to a tileset (or meshlib) from the "Scene" dropdown menu in the editor. Save your scene as TSCN and save the tileset as TRES.
+#### Creating a Tileset
+
+- [Link: Old Method (also applies to MeshLibrary (3D))](https://www.gamefromscratch.com/post/2015/04/28/Godot-Engine-Tutorial-Part-8-Tilemaps.aspx)
+
+- [Link (youtube video): New Method](https://www.youtube.com/watch?v=F6VerW98gEc)
 
 ### Linear Algebra
 
