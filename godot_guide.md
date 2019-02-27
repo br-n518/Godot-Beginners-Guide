@@ -1,24 +1,32 @@
 # Godot Beginner's Guide
 
+Quick start guide for Godot.
+
 ### Project Manager
 
-The first thing you see when opening Godot is the project manager. Here you can see a list of projects to choose from (if any). To add an existing project, use the “Scan” feature to search a folder (and its sub-folders) for all projects it can find. Godot 2.1 projects can’t import into Godot 3.0 without converting it. Godot 2.1 has a converter but may not work well. Godot 3.0 projects should work in Godot 3.1, but Godot 3.1 files won’t work in Godot 3.0.
+The first thing you see when opening Godot is the project manager. You have a list of projects being managed by Godot (including a "favorite" star button to pin projects) and several buttons for managing projects. To add an existing project, use the “Scan” feature to search a folder (and its sub-folders) for all projects it can find.
+Godot `2.1` projects can’t import into Godot `3.0` without converting the project. Godot `2.1` has a converter but it may not work well.
+Godot `3.0` projects should work in `3.1`, but `3.1` files won’t work in `3.0`.
 
-To create a new project, you need to create a new folder. Any empty folder will work, but it has to be completely empty. Once you have your folder then click OK and load (edit) your project. You can also run your projects from the project manager without launching the editor.
+To create a new project, you need an empty folder. Once you have your folder then click OK. Now "Edit" (load/open) your project. You can also run your projects from the project manager without launching the editor ("Run" feature).
 
 ### File System
 
-In your project folder are some hidden files, a couple default files (like “icon.png”) and the rest are your files. The root or top of this file system is “res://” and there are also “user://” and system files. The *user directory* (user://) is for game saves, while the *resource directory* (res://) is for your game files . If you download add-ons from the Godot asset library, they should go to “res://addons/” folder in your project. You can organize your project files using folders. You can always add more folders, but keep it organized.
+Godot refers to your project folder as "res://" and contains your static game files used to compile your export. Godot also has another special address prefix "user://" for dynamic data.
+Essentially the *user directory* "user://" is for game saves or generated map data caching. If you download add-ons from the Godot asset library, they should go to "res://addons/" folder in your project. Organize your project files using folders.
+One folder for graphics, one for sounds, one for scripts, whatever makes sense to you.
 
 ![FileSystem Widget](img/godot_filebrowser.png)
 
+    Resources are usually imported into your project as image files or sound files. Godot converts these files into its own format, which you can see in the “res://.import” folder. These resources can be re-imported from the editor by selecting your file in the file browser.
+
 ### Objects
 
-[`Node`](https://docs.godotengine.org/en/3.0/classes/class_node.html)s are the main object type you will work with in the editor. Each scene you build out of nodes, and actually a “scene” is a collection of nodes saved to a file (TSCN or “text-scene”). You can include scenes into other scenes and update them later. Changes take effect in related scenes, so making adjustments is no problem. You can build up your game parts (player, level, enemy, enemy spawner) and combine them in different ways.
+[`Node`](https://docs.godotengine.org/en/3.0/classes/class_node.html) objects are the main object type you will work with in the editor. Each scene is built out of nodes and saved to a file (TSCN or “text-scene”). You can include scenes into other scenes and update them later (Inherit Scene). You can build up your game parts (player, level, enemy, enemy spawner) and combine them in different ways.
 
-Inside a [`Node`](https://docs.godotengine.org/en/3.0/classes/class_node.html) you have *properties*, and from GDScript you also have *functions*. Node properties can be a data type (number, Vector2, Array, etc.) or a Resource (image, sound). Functions control game logic by editing properties or calling engine functions. Nodes inherit all the properties and functions of their parent node. [`Node2D`](https://docs.godotengine.org/en/3.0/classes/class_node2d.html) has all the info and tools available in [`Node`](https://docs.godotengine.org/en/3.0/classes/class_node.html), because [`Node2D`](https://docs.godotengine.org/en/3.0/classes/class_node2d.html) is a child of [`Node`](https://docs.godotengine.org/en/3.0/classes/class_node.html).
+Inside a [`Node`](https://docs.godotengine.org/en/3.0/classes/class_node.html) you have *properties* and *functions*. They also have signals for calling functions when an event happens. Functions control game logic by editing properties or calling engine functions. Objects (a Node is a Reference which is an Object) inherit all the properties and functions of their parent object. [`Node2D`](https://docs.godotengine.org/en/3.0/classes/class_node2d.html) has all the info and tools available in [`Node`](https://docs.godotengine.org/en/3.0/classes/class_node.html), because [`Node2D`](https://docs.godotengine.org/en/3.0/classes/class_node2d.html) is a child of [`Node`](https://docs.godotengine.org/en/3.0/classes/class_node.html).
 
-You can also use signals to call functions, which are event triggered. A common example for signals is when using a [`Timer`](https://docs.godotengine.org/en/3.0/classes/class_timer.html) node. The “timeout” signal calls a function when the timer is up. You can define a signal in your script, then call `emit_signal` when the signal's event happens. Signals are fast, but you have to choose where to call `emit_signal`.
+A common example for signals is when using a [`Timer`](https://docs.godotengine.org/en/3.0/classes/class_timer.html) node. The "timeout" signal calls a function when the timer is up. You can define a signal in your script, then call `emit_signal` when the signal's event happens. Signals are fast, but you have to choose where to call `emit_signal`.
 
 *Example: Using a timer.*
 ```gdscript
@@ -50,8 +58,6 @@ func set_hitpoints( new_hp ):
 		emit_signal("got_hurt", diff)
 	hitpoints = new_hp
 ```
-
-Resources are usually imported into your project as image files or sound files. Godot converts these files into its own format, which you can see in the “res://.import” folder. These resources can be re-imported from the editor by selecting your file in the file browser.
 
 ### SceneTree
 
