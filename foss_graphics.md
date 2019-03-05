@@ -27,27 +27,29 @@
 - Great all-around 2D editor for raster graphics (pixel graphics).
 - Graphics tablet configuration can be difficult (I like to disable autosave input config, and manually save the pen config, plus let mouse and pen use same brush options).
 - Many plugin options, including *heightmap*->*normalmap* conversion and G'MIC.
+- Can export animated GIFs but has zero animation support (feel free to try out the GIMP Animation Package which I had no luck with).
 
 ### Inkscape
 
 - Standard vector graphics software, base standard for SVG (Scalar Vector Graphics) images.
 - Vector uses shapes and numbers to define images, which web browsers and other applications use to render the image every time.
-- The image (SVG) is the source file, unless baked to PNG.
+- The image (SVG) is the source file.
 - Anti-aliasing is a document property, and affects rendering.
 This applies to exporting and the SVG itself because the property is saved within the SVG XML.
 
 ### MyPaint
 
 - Great for concept art, or drawing your ideas.
-- Expanding canvas is not limited by preset image canvas size.
 - Great brush engine for graphics tablets.
+- Expanding canvas is not limited by preset canvas size.
 - Fullscreen mode automatically hides the UI giving a fullscreen canvas. Let the ideas flow.
 - MyPaint library lets other programs use the brush engine (as seen in GIMP 2.10). The expanding canvas still makes MyPaint a must-have.
 
 ### Krita
 
-- Impressive brush engine works great with mouse or graphics tablet. Full tablet support.
-- Vector and raster graphics capable.
+- Critically acclaimed brush engine works great with mouse or graphics tablet.
+- Full tablet support.
+- Vector and raster graphics support.
 - 2D animation editing included.
 - Unique tool interactions (such as with the Bezier tool) intended for creative artists.
 - Procedural texture generation available through G'MIC. *heightmap*->*normalmap* conversion included with Krita.
