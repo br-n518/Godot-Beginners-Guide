@@ -25,7 +25,7 @@
 - Good procedural texture rendering (Filters) in 2.8
 - *Great* procedural texture rendering in 2.10
 - Great all-around 2D editor for raster graphics (pixel graphics).
-- Graphics tablet configuration can be difficult (I like to disable autosave input config, and manually confgure the pen, plus let mouse and pen use same brush options).
+- Graphics tablet configuration can be difficult (I like to disable autosave input config, and manually save the pen config, plus let mouse and pen use same brush options).
 - Many plugin options, including *heightmap*->*normalmap* conversion and G'MIC.
 
 ### Inkscape
