@@ -5,13 +5,11 @@
 
 *****
 
-## Other Stuff
+## Graphics
 
-- [Blender-Godot Workflow](blender_godot_workflow.md)
+- [Blender-Godot File Workflow](blender_godot_workflow.md)
 
-- [FOSS Graphics (free open-source)](foss_graphics.md)
-
-- [GDNative C++ install commands (Ubuntu)](gdnative_cpp_install.md)
+- [FOSS Graphics Programs (free open-source)](foss_graphics.md)
 
 *****
 
@@ -26,3 +24,10 @@ by [@Calinou](https://github.com/Calinou)
 - [Reddit Tutorial Megapost](https://www.reddit.com/r/godot/comments/an0iq5/godot_tutorials_list_of_video_and_written/)  
 by [u/ph1l](https://www.reddit.com/user/ph1l)
 
+*****
+
+#### Other
+
+- [GDNative C++ install commands (Ubuntu)](gdnative_cpp_install.md)
+
+*****
