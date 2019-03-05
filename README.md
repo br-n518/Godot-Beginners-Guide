@@ -9,6 +9,8 @@
 
 - [Blender-Godot Workflow](blender_godot_workflow.md)
 
+- [FOSS Graphics (free open-source)](foss_graphics.md)
+
 - [GDNative C++ install commands (Ubuntu)](gdnative_cpp_install.md)
 
 *****
