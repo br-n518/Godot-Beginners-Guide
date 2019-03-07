@@ -1,4 +1,4 @@
-## Blender-Godot PBR Workflow Guide
+## Blender-Godot Workflow Guide
 
 - Using `Godot 3.x` PBR engine.
 - `Blender 2.79` or `Blender 2.8` should be fine, since materials are not exported here.
@@ -89,4 +89,3 @@ void fragment() {
 	NORMALMAP_DEPTH = texture(normal_height, UV).a;
 }
 ```
-
