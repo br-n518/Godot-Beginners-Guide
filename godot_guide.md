@@ -72,6 +72,14 @@ In 2D the engine draws objects to screen in order. The first node in the tree ge
 
 You can access nodes belonging to a group from the SceneTree. Use the code `get_tree().get_nodes_in_group("enemies")` to get all nodes in group "enemies".
 
+- 2D objects use X and Y positioning:
+  - X positive (+) is right; negative (-) is left.
+  - Y positive is down; negative is up.
+
+- 3D objects use X, Y, and Z positioning:
+  - X and Z form the floor plane. (Left, right, forward, backwards)
+  - Y positive is up; negative is down.
+
 ### GDScript
 
 GDscript is Godot's default coding language. You save it to a text file ending with .gd or save it built-in to any [`Node`](https://docs.godotengine.org/en/3.0/classes/class_node.html) object. The script has to start with `extends Node` or replace "Node" with the type you'll attach the script to. Leaving out "extends" is the same as `extends Reference` which is a data type you don't add to the [`SceneTree`](https://docs.godotengine.org/en/3.0/getting_started/step_by_step/scene_tree.html).
