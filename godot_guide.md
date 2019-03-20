@@ -66,7 +66,9 @@ Making a game in Godot begins with creating a scene. Inside a scene you assemble
 
 When you run your game you start with running a scene. It runs inside the [`SceneTree`](https://docs.godotengine.org/en/3.0/getting_started/step_by_step/scene_tree.html) object, which holds the node tree of your scene. Any GDScript attached to your scene can access the [`SceneTree`](https://docs.godotengine.org/en/3.0/getting_started/step_by_step/scene_tree.html) by calling `get_tree()`.
 
-In 2D the engine draws objects to screen in order. The first node in the tree gets drawn, then the second; and so the second drawing is on top of the first one. That means objects at the top of your node list are in the background when drawn to screen. And of course the last nodes in the list get drawn right on top in the foreground. There is a [`YSort`](https://docs.godotengine.org/en/3.0/classes/class_ysort.html) node that lets you order them based on Y position. Make [`YSort`](https://docs.godotengine.org/en/3.0/classes/class_ysort.html) the parent of your sorted nodes, and they’re ordered by their `position.y` value. Thus they’re in Y-ordered draw order. Useful for overlapping sprites in a bird-eye or isometric scene.
+In 2D: the engine draws sprites to screen in order. The Sprite node at the top of the SceneTree is drawn first, and at the end of the node tree Sprites are drawn last. Background sprites go at the top of the list of nodes in your Godot editor. UI nodes (Control) go below Node2D objects.
+
+Sometimes you want sprites to switch order, to change which is drawn on top. If you want to order them based on their position.y value, then make them children (`y_sort_node.add_child()`) of a [`YSort`](https://docs.godotengine.org/en/3.0/classes/class_ysort.html) node.
 
 ![Node Tree](img/godot_nodetree.png)
 
@@ -205,5 +207,3 @@ Linear algebra is where Vectors and Matrices (matrix) come from. It lets us do c
 Vectors can have 2 or more components, but for games we’re only interested in 2-component and 3-component vectors. Godot provides us with `Vector2` and `Vector3` integrated data types. There are also the `Transform2D` and `Transform` objects. Call the `xform` function to transform your vectors according to your `Transform`.
 
 [Link: Godot Math Docs](https://docs.godotengine.org/en/3.0/tutorials/math/)
-
-
