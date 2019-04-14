@@ -3,7 +3,7 @@
 - Using `Godot 3.x` PBR engine.
 - `Blender 2.79` or `Blender 2.8` should be fine, since materials are not exported here.
 - `Better Collada Exporter` for Blender (latest version)
-
+- TODO: ESCN export for Blender is the newest method of exporting.
 ***
 
 ### Preamble
