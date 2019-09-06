@@ -178,7 +178,7 @@ func _process(delta):
 
 Here I defined a constant (can’t change value) called SPEED. I used the “onready” keyword to initialize the variable when the Node becomes “ready”.
 
-For input, make sure the `InputEvent` is an [`InputEventKey`](https://docs.godotengine.org/en/3.1/classes/class_inputeventkey.html?highlight=InputEventKey) (so I know I can call `event.scancode` or `event.pressed`). Then, if pressed I set the direction, or else set the direction variable to zero.
+For input, make sure the `InputEvent` is an [`InputEventKey`](https://docs.godotengine.org/en/3.1/classes/class_inputeventkey.html) (so I know I can call `event.scancode` or `event.pressed`). Then, if pressed I set the direction, or else set the direction variable to zero.
 
 In `_process` I move the X position of the 'Sprite' based on the direction they want to go (1 or -1) multiplied by SPEED and `delta`. The [`Sprite`](https://docs.godotengine.org/en/3.1/classes/class_sprite.html) inherits `position` from [`Node2D`](https://docs.godotengine.org/en/3.1/classes/class_node2d.html). The `delta` variable is a number for how much time passed between engine calls to `_process`. Multiply this by your speed so that movement is consistent with time itself. This makes movement consistent between different computers too.
 
