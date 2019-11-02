@@ -31,4 +31,6 @@ by [u/ph1l](https://www.reddit.com/user/ph1l)
 
 - [GDNative C++ install commands](gdnative_cpp_install.md) (Ubuntu)
 
+- [GDNative C library](https://github.com/br-n518/util-library_c) (Advanced)
+
 *****
