@@ -194,8 +194,8 @@ func _physics_process(delta):
     move_and_slide( (direction * SPEED) + GRAVITY )
 ```
 
-    **NOTE**: When using KinematicBody's `move_and_collide` function, you should multiply the argument by `delta`  
-    When using `move_and_slide` you should **NOT** multiply by 'delta' because the 'slide' functions manage this automatically.
+**NOTE**: When using KinematicBody's `move_and_collide` function, you should multiply the argument by `delta`  
+  When using `move_and_slide` you should **NOT** multiply by 'delta' because the 'slide' functions manage this automatically.
   
 
 [Link: More physics info.](https://docs.godotengine.org/en/3.1/tutorials/physics/index.html)
