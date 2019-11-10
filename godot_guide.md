@@ -56,13 +56,13 @@ extends Node
 onready var my_timer = Timer.new()
 
 func _ready():
-	my_timer.wait_time = 0.5
-	my_timer.connect( “timeout”, self, “_timer_done” ) #connect signal
-	self.add_child( my_timer )
-	my_timer.start()
+    my_timer.wait_time = 0.5
+    my_timer.connect( “timeout”, self, “_timer_done” ) #connect signal
+    self.add_child( my_timer )
+    my_timer.start()
 
 func _timer_done():
-	print(“Timer finished.”) #print to console output (seen in editor)
+    print(“Timer finished.”) #print to console output (seen in editor)
 ```
 
 *Example: Creating a signal.*
@@ -70,15 +70,15 @@ func _timer_done():
 ```gdscript
 extends Node2D
 
-signal got_hurt (damage)
+signal got_hurt (damage)  
 
 onready var hitpoints = 10 setget set_hitpoints
 
 func set_hitpoints( new_hp ):
-	var diff = new_hp - hitpoints
-	if diff < 0:
-		emit_signal("got_hurt", diff)
-	hitpoints = new_hp
+    var diff = new_hp - hitpoints
+    if diff < 0:
+        emit_signal("got_hurt", diff)
+    hitpoints = new_hp
 ```
 
 ### SceneTree
@@ -183,16 +183,20 @@ const SPEED = 500
 onready var direction = Vector2(0,0)
 
 func _process(delta):
-	if Input.is_action_pressed(“move_right”):
-		direction.x = 1
-	elif Input.is_action_pressed(“move_left”):
-		direction.x = -1
-	else:
-		direction.x = 0
+    if Input.is_action_pressed(“move_right”):
+        direction.x = 1
+    elif Input.is_action_pressed(“move_left”):
+        direction.x = -1
+    else:
+        direction.x = 0
 
 func _physics_process(delta):
-	move_and_slide( ((direction * SPEED) + GRAVITY) * delta )
+    move_and_slide( (direction * SPEED) + GRAVITY )
 ```
+
+    **NOTE**: When using KinematicBody's `move_and_collide` function, you should multiply the argument by `delta`  
+    When using `move_and_slide` you should **NOT** multiply by 'delta' because the 'slide' functions manage this automatically.
+  
 
 [Link: More physics info.](https://docs.godotengine.org/en/3.1/tutorials/physics/index.html)
 
@@ -218,20 +222,20 @@ const SPEED = 200
 onready var direction = 0
 
 func _input(event):
-	if event is InputEventKey:
-		if event.pressed:
-			match event.scancode:
-				KEY_LEFT:
-					direction = -1
-				KEY_RIGHT:
-					direction = 1
-		else:
-			match event.scancode:
-				KEY_LEFT, KEY_RIGHT:
-					direction = 0
+    if event is InputEventKey:
+        if event.pressed:
+            match event.scancode:
+                KEY_LEFT:
+                    direction = -1
+                KEY_RIGHT:
+                    direction = 1
+        else:
+            match event.scancode:
+                KEY_LEFT, KEY_RIGHT:
+                    direction = 0
 
 func _process(delta):
-	position.x += direction * SPEED * delta
+    position.x += direction * SPEED * delta
 ```
 
 [Link: `InputEvent`](https://docs.godotengine.org/en/3.1/tutorials/inputs/inputevent.html)
