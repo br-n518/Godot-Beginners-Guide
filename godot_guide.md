@@ -1,7 +1,5 @@
 # Godot Beginner's Guide
 
-Quick start guide for Godot.
-
 ### Project Manager
 
 The first thing you see when opening Godot is the project manager.
