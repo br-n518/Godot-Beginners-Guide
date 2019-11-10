@@ -27,7 +27,7 @@ One folder for graphics, one for sounds, one for scripts, whatever makes sense t
 
 Godot converts resource files (like images) into its own format, which you can see in the “res://.import” folder.
 Resources can be re-imported from the editor by selecting your file in the file browser.
-Your import preferences are saved per file in a "\*.import" file (`my_image.png.import` for example)
+Your import preferences are saved per file in a \*.import file (`my_image.png.import` for example)
 
 ### Objects
 
@@ -71,6 +71,7 @@ func _timer_done():
 extends Node2D
 
 signal got_hurt (damage)
+
 onready var hitpoints = 10 setget set_hitpoints
 
 func set_hitpoints( new_hp ):
